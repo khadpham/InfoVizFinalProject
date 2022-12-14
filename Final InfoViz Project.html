@@ -1,0 +1,120 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+	<title>New Project</title>
+	<!-- JQuery current version -->
+	<link href="https://code.jquery.com/ui/1.13.1/themes/blitzer/jquery-ui.css" rel="stylesheet">
+    <script src='http://code.jquery.com/jquery-3.6.0.js'></script>
+	<script type="text/javascript" src="https://code.jquery.com/ui/1.13.1/jquery-ui.js"></script>
+	<!-- Highcharts libraries -->
+    <script src="https://code.highcharts.com/highcharts.js"></script>
+	<script src="https://code.highcharts.com/highcharts-more.js"></script>
+	<script src="http://code.highcharts.com/modules/exporting.js"></script>
+	<script src="http://code.highcharts.com/modules/export-data.js"></script>
+	<script src="http://code.highcharts.com/modules/offline-exporting.js"></script>	
+	<script src="http://code.highcharts.com/modules/accessibility.js"></script>
+	<script src="http://code.highcharts.com/modules/annotations.js"></script>
+	<script src="https://code.highcharts.com/modules/streamgraph.js"></script>
+	<script src="https://code.highcharts.com/modules/series-label.js"></script>
+
+	<script type="text/javascript" src="https://code.highcharts.com/maps/modules/map.js"></script>
+	<script type="text/javascript" src="https://code.highcharts.com/mapdata/custom/europe.js"></script>
+
+	<!-- local Javascript files -->
+	<script type="text/javascript" src="localstorage.js"></script>
+	<script type="text/javascript" src="lab3test3.js"></script>
+
+	<!-- local CSS stylesheet -->
+	<link rel="stylesheet" type="text/css" href="lab3test.css">
+</head>
+
+<body>
+	<header>Overall of Natural Gas Energy in the UK from 2011 to 2021</header>
+	
+	<!-- <div id="displayarea2" ></div> -->
+
+	<div class="tab">
+		<button class="tablinks" onclick="openCity(event, 'Dashboard')" id="defaultOpen">Dashboard</button>
+		<button class="tablinks" onclick="openCity(event, 'Info')">Info</button>
+		<button class="tablinks" onclick="openCity(event, 'References')">References</button>
+	  </div>
+	<div id="Dashboard" class="tabcontent">
+		<div id="displayarea" ></div>
+		<div id="menubox2"></div>
+		<div id="menubox"></div>
+		<div id="sliderbox"></div>
+	  </div>
+	  
+	<div id="Info" class="tabcontent">
+		<h2 style="margin-left: 25%;">Key Headlines</h2>
+		<p>
+			<pre style="margin-left: 20%;font-family: Lato; line-height: 1.5;">
+	<b>	1.	2021, UK gas demand rose by 5.4 per cent compared to 2020, reaching 854 TWh.</b>
+			This increase reflected an easing of lockdown restrictions from spring until the end
+			of the year, reduced renewables generation, and increased nuclear demand
+			for electricity generation. The easing of restrictions predominantly increased 
+			demand across the industrial, commercial and public sectors.
+			
+	<b>	2.	Gas production reached a record low in 2021 at 363 TWh, 47 TWh below the 
+			previous record low in 2013.</b> This was a 17 per cent fall compared to 2020 and was 
+			primarily the result of scheduled maintenance, including a shutdown of the Forties 
+			Pipeline System (FPS) which serves a significant proportion of UK oil and gas 
+			production. To meet demand, imports of natural gas increased by 17 per cent, and 
+			exports fell by 29 per cent to the lowest level since 1998. This resulted in a 30 per cent 
+			increase in net imports. The rise in imports was driven by increased pipeline imports, 
+			up 44 per cent; imports of Liquified Natural Gas (LNG) fell by 22 per cent. 
+			
+	<b>	3.	Quarter 4 2021 saw a 6.3 per cent fall in demand for natural gas compared with 
+			Quarter 4 2020</b>. This was due to reduced demand for electricity generation and warmer 
+			quarterly temperatures reducing domestic demand. Production continued to increase from
+			the summer lows but was down 1.7 per cent on the same period in the previous year. Net
+			imports fell 17 per cent in Quarter 4 2021, primarily due to significant exports in October.
+			Imports of LNG remained substantial but were down 5.5 per cent compared with
+			Quarter 4 2020.
+		</pre>
+		</p>
+	  </div>
+	  
+	<div id="References" class="tabcontent">
+		<h2 style="margin-left: 20%; font-size: xx-large;">Sources</h2>
+		<p> <pre style="margin-left: 15%;font-family: Lato; line-height: 1.5;">
+	<b>	1.	BP, 2021. <em>Statistical Review of World Energy.</em> [Online] </b>
+			Available at: 			<a href="https://www.bp.com/en/global/corporate/energy-economics/statistical-review-of-world-energy.html">Statistical Review of world Energy</a> 
+			Variable description:	Excludes natural gas converted to liquid fuels but includes derivatives of coal as well as natural gas consumed in
+								Gas-to-Liquids transformation. The difference between the world consumption figures and the world production 
+								statistics is due to variations in stocks at storage facilities and liquefaction plants, together with unavoidable 
+								disparities in the definition, measurement or conversion of gas supply and demand data.
+			Variable time span:		1965 - 2020
+			Data published by:		BP
+			Retrieved:			08-July-2021
+			
+	<b>	2.	Department for Business. <em>National statistics GOV.UK. </em> [Online] </b>
+			Available at:			<a href=" https://www.gov.uk/government/statistics/gas-section-4-energy-trends">National statistics GOV.UK</a>
+			Data published by:		Department for Business, Energy & Industrial Strategy
+			Retrieved:			28-April-2022	
+		</pre>
+		</p>
+	  </div>
+	 
+	<script>
+		function openCity(evt, cityName) {
+		  var i, tabcontent, tablinks;
+		  tabcontent = document.getElementsByClassName("tabcontent");
+		  for (i = 0; i < tabcontent.length; i++) {
+			tabcontent[i].style.display = "none";
+		  }
+		  tablinks = document.getElementsByClassName("tablinks");
+		  for (i = 0; i < tablinks.length; i++) {
+			tablinks[i].className = tablinks[i].className.replace(" active", "");
+		  }
+		  document.getElementById(cityName).style.display = "block";
+		  evt.currentTarget.className += " active";
+		}
+		
+		// Get the element with id="defaultOpen" and click on it
+		document.getElementById("defaultOpen").click();
+	</script>
+</body>
+</html>
+
